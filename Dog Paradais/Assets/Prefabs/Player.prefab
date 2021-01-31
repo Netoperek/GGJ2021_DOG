@@ -17,7 +17,9 @@ GameObject:
   - component: {fileID: 8509783501685719824}
   - component: {fileID: 6082575806313374961}
   - component: {fileID: 1824045667}
-  m_Layer: 13
+  - component: {fileID: 838423050}
+  - component: {fileID: 838423051}
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -52,15 +54,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icons:
-  - {fileID: 21300000, guid: d79ebbb6697af13408f60aed54e4a095, type: 3}
-  - {fileID: 21300000, guid: 06145968e47768f4bac398802d80ecb7, type: 3}
-  - {fileID: 21300000, guid: a1bf4e2cf90377341939f7e1d9a27d95, type: 3}
-  speedDialogue: 1
+  - {fileID: 21300000, guid: 87843282290af0e4c873847fcfd729ef, type: 3}
+  - {fileID: 21300000, guid: 470a2139604440544978e3037c3dcc9d, type: 3}
+  - {fileID: 21300000, guid: 6a72fd644c12e5c4bb31861821427e75, type: 3}
+  speedDialogue: 3
   icon: {fileID: 1192395214750010317}
   dialogueImage: {fileID: 4346721718595148130}
   canvas: {fileID: 3762644117852054111}
   speedFade: 0.0001
-  fade: 0.0001
+  fade: 0.01
 --- !u!114 &114230831923080080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +286,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffad43bb006db4856a9c527b89b48db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 1
+  iconsLive:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  blackLife: {r: 0, g: 0, b: 0, a: 1}
+  waithLife: {r: 1, g: 1, b: 1, a: 1}
+  maxHP: 3
 --- !u!61 &1824045667
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -311,6 +319,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.54}
   m_EdgeRadius: 0
+--- !u!114 &838423050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208144871472054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8534e17a0f90604c9afd4f5c73d829f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Id: 2cedde77-9eec-414f-a172-5c4b3c8e2891
+--- !u!114 &838423051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208144871472054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11caf9c34a6eb8a4a99b276bc35d62d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointText: {fileID: 0}
 --- !u!1 &167730491627446542
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +356,7 @@ GameObject:
   - component: {fileID: 1289921044055400687}
   - component: {fileID: 7951201225252464503}
   - component: {fileID: 4346721718595148130}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +432,7 @@ GameObject:
   - component: {fileID: 4328404199294391144}
   - component: {fileID: 3652670460122919683}
   - component: {fileID: 8733643400141272379}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +530,7 @@ GameObject:
   - component: {fileID: 5829226968924377950}
   - component: {fileID: 804563958945908320}
   - component: {fileID: 1192395214750010317}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}

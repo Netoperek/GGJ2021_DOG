@@ -20,6 +20,7 @@ public class PlayerDialogue : MonoBehaviour
 
     private void Awake()
     {
+        
         color = new Color(0f, 0f, 0f, fade);
         icon.enabled = false;
         canvas.SetActive(true);
@@ -50,6 +51,9 @@ public class PlayerDialogue : MonoBehaviour
     {
         while (true)
         {
+           
+
+            yield return new WaitForSeconds(speedFade);
             if (1f >= dialogueImage.color.a)
             {
                 dialogueImage.color += color;
@@ -60,8 +64,6 @@ public class PlayerDialogue : MonoBehaviour
                 StartCoroutine(Dialogues());
                 yield break;
             }
-
-            yield return new WaitForSeconds(speedFade);
 
         }
     }

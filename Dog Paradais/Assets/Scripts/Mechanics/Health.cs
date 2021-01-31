@@ -1,6 +1,8 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using Platformer.Gameplay;
 using UnityEngine;
+using UnityEngine.UI;
 using static Platformer.Core.Simulation;
 
 namespace Platformer.Mechanics
@@ -10,6 +12,13 @@ namespace Platformer.Mechanics
     /// </summary>
     public class Health : MonoBehaviour
     {
+        [SerializeField] List<Image> iconsLive;
+        [SerializeField] Color blackLife;
+        [SerializeField] Color waithLife;
+
+
+
+
         /// <summary>
         /// The maximum hit points for the entity.
         /// </summary>
@@ -36,13 +45,41 @@ namespace Platformer.Mechanics
         /// </summary>
         public void Decrement()
         {
-            currentHP = Mathf.Clamp(currentHP - 1, 0, maxHP);
-            if (currentHP == 0)
+            if (true)
             {
-                var ev = Schedule<HealthIsZero>();
-                ev.health = this;
+
+
+                currentHP = Mathf.Clamp(currentHP - 1, 0, maxHP);
+
+                if (2 == currentHP)
+                {
+                    iconsLive[2].color = blackLife;
+
+
+                }
+
+                if (1 == currentHP)
+                {
+                    iconsLive[1].color = blackLife;
+
+                }
+                if (currentHP == 0)
+                {
+                    iconsLive[0].color = blackLife;
+                    var ev = Schedule<HealthIsZero>();
+                    ev.health = this;
+                }
+
             }
         }
+
+
+        IEnumerator Immortality()
+        {
+            
+            yield return new WaitForSeconds(1f);
+        }
+
 
         /// <summary>
         /// Decrement the HP of the entitiy until HP reaches 0.
@@ -50,11 +87,26 @@ namespace Platformer.Mechanics
         public void Die()
         {
             while (currentHP > 0) Decrement();
+           
+            StartCoroutine(heart());
         }
 
         void Awake()
         {
+            iconsLive[0].color = waithLife;
+            iconsLive[1].color = waithLife;
+            iconsLive[2].color = waithLife;
             currentHP = maxHP;
         }
+        IEnumerator heart()
+        {
+            yield return new WaitForSeconds(1.5f);
+            iconsLive[0].color = waithLife;
+            iconsLive[1].color = waithLife;
+            iconsLive[2].color = waithLife;
+            yield break;
+        }
     }
+
+    
 }
